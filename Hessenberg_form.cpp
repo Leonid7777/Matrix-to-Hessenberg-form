@@ -51,20 +51,21 @@ matrix_make(double* matrix, int& size_of_matrix)
 }
 
 void
-make_vector_x(int& i, int& size_of_matrix, double* x, double* matrix, double& norm)
+make_vector_x(int& i, int size_of_matrix, double* x, double* matrix, double& norm)
 {
     norm = 0;
+    int pas = i * size_of_matrix;
     for(int j = i + 1; j < size_of_matrix; j++) {
-        x[j - i - 1] = matrix[i * size_of_matrix + j];
-        norm += matrix[i * size_of_matrix + j] * matrix[i * size_of_matrix + j];
+        x[j - i - 1] = matrix[pas + j];
+        norm += matrix[pas + j] * matrix[pas + j];
     }
     x[0] -= sqrt(norm);
-    norm -= matrix[i * size_of_matrix + i + 1] * matrix[i * size_of_matrix + i + 1] - x[0] * x[0];
+    norm -= matrix[pas + i + 1] * matrix[pas + i + 1] - x[0] * x[0];
     norm /= 2;
 }
 
 void
-l_matrix_multiplicate(double* matrix, double* x, int& size_of_matrix, int size_of_vector, double& norm)
+l_matrix_multiplicate(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm)
 {
     int dif = size_of_matrix - size_of_vector;
     double sum;
@@ -81,7 +82,7 @@ l_matrix_multiplicate(double* matrix, double* x, int& size_of_matrix, int size_o
 }
 
 void
-r_matrix_multiplicate(double* matrix, double* x, int& size_of_matrix, int size_of_vector, double& norm)
+r_matrix_multiplicate(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm)
 {
     int dif = size_of_matrix - size_of_vector;
     
@@ -107,7 +108,7 @@ r_matrix_multiplicate(double* matrix, double* x, int& size_of_matrix, int size_o
 int
 main(void)
 {
-    int size_of_matrix = 4096;
+    int size_of_matrix = 1024;
     // size_of_matrix_create(size_of_matrix);
     double* matrix = new double[size_of_matrix * size_of_matrix];
     matrix_make(matrix, size_of_matrix);
