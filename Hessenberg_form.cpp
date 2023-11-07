@@ -43,9 +43,9 @@ matrix_make(double* matrix, int& size_of_matrix)
     //         }
     //     }
     // }
-    for(int i = 0; i < size_of_matrix; i++) {
-        for(int j = 0; j < size_of_matrix; j++) {
-            matrix[i * size_of_matrix + j] = i * size_of_matrix + j + 1;
+    for(int j = 0; j < size_of_matrix; j++) {
+        for(int i = 0; i < size_of_matrix; i++) {
+            matrix[i * size_of_matrix + j] = j * size_of_matrix + i + 1;
         }
     }
 }
@@ -55,11 +55,11 @@ make_vector_x(int& i, int& size_of_matrix, double* x, double* matrix, double& no
 {
     norm = 0;
     for(int j = i + 1; j < size_of_matrix; j++) {
-        x[j - i - 1] = matrix[j * size_of_matrix + i];
-        norm += matrix[j * size_of_matrix + i] * matrix[j * size_of_matrix + i];
+        x[j - i - 1] = matrix[i * size_of_matrix + j];
+        norm += matrix[i * size_of_matrix + j] * matrix[i * size_of_matrix + j];
     }
     x[0] -= sqrt(norm);
-    norm -= matrix[(i + 1) * size_of_matrix + i] * matrix[(i + 1) * size_of_matrix + i] - x[0] * x[0];
+    norm -= matrix[i * size_of_matrix + i + 1] * matrix[i * size_of_matrix + i + 1] - x[0] * x[0];
     norm /= 2;
 }
 
@@ -67,6 +67,24 @@ void
 l_matrix_multiplicate(double* matrix, double* x, int& size_of_matrix, int size_of_vector, double& norm)
 {
     int dif = size_of_matrix - size_of_vector;
+
+    for(int i = dif - 1; i < size_of_matrix; i++) {
+        double sum = 0;
+        for(int j = dif; j < size_of_matrix; j++) {
+            sum += (matrix[i *  size_of_matrix + j] * x[j - dif]);
+        }
+        sum /= norm;
+        for(int j = dif; j < size_of_matrix; j++) {
+            matrix[i *  size_of_matrix + j] -= (x[j - dif] * sum);
+        }
+    }
+}
+
+void
+r_matrix_multiplicate(double* matrix, double* x, int& size_of_matrix, int size_of_vector, double& norm)
+{
+    int dif = size_of_matrix - size_of_vector;
+    
     double* vector_sum = new double[size_of_matrix - dif + 1];
 
     for(int j = dif; j < size_of_matrix; j++) {
@@ -82,27 +100,10 @@ l_matrix_multiplicate(double* matrix, double* x, int& size_of_matrix, int size_o
     }
 }
 
-void
-r_matrix_multiplicate(double* matrix, double* x, int& size_of_matrix, int size_of_vector, double& norm)
-{
-    int dif = size_of_matrix - size_of_vector;
-    
-    for(int i = dif - 1; i < size_of_matrix; i++) {
-        double sum = 0;
-        for(int j = dif; j < size_of_matrix; j++) {
-            sum += (matrix[i *  size_of_matrix + j] * x[j - dif]);
-        }
-        sum /= norm;
-        for(int j = dif; j < size_of_matrix; j++) {
-            matrix[i *  size_of_matrix + j] -= (x[j - dif] * sum);
-        }
-    }
-}
-
 int
 main(void)
 {
-    int size_of_matrix = 5;
+    int size_of_matrix = 4096;
     // size_of_matrix_create(size_of_matrix);
     double* matrix = new double[size_of_matrix * size_of_matrix];
     matrix_make(matrix, size_of_matrix);
@@ -120,18 +121,18 @@ main(void)
 
     std::cout << std::endl;
     
-    for(int i = 0; i < size_of_matrix; i++) {
-        for(int j = 0; j < size_of_matrix; j++) {
-            std::cout << matrix[i *  size_of_matrix + j] << " ";
-        }
-        std::cout << std::endl;
-    }
+    // for(int i = 0; i < size_of_matrix; i++) {
+    //     for(int j = 0; j < size_of_matrix; j++) {
+    //         std::cout << matrix[j *  size_of_matrix + i] << " ";
+    //     }
+    //     std::cout << std::endl;
+    // }
     
     bool all_is_good = true;
     
     for(int i = 2; i < size_of_matrix; i++) {
         for(int j = 0; j < i - 1; j++) {
-            if(fabs(matrix[i *  size_of_matrix + j]) >= std::exp(-15)) {
+            if(fabs(matrix[j *  size_of_matrix + i]) >= std::exp(-15)) {
                 all_is_good = false;
             }
         }
