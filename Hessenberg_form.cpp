@@ -8,10 +8,10 @@
 // void
 // size_of_matrix_create(int& size_of_matrix)
 // {
-//     std::string path = "/home/l.burtsev/Desktop/prak/Householder/in.txt";
+//     std::string path = "/home/l.burtsev/Desktop/Householder/practicum/in.txt";
 //     std::ifstream fin;
 //     fin.open(path);
-    
+
 //     if (!fin.is_open())
 //     {
 //         std::cout << "Ошибка открытия файла!" << std::endl;
@@ -26,7 +26,7 @@
 void
 matrix_make(double* matrix, int& size_of_matrix)
 {
-    // std::string path = "/home/l.burtsev/Desktop/prak/Householder/in.txt";
+    // std::string path = "/home/l.burtsev/Desktop/Householder/practicum/in.txt";
     // std::ifstream fin;
     // fin.open(path);
     
@@ -37,8 +37,8 @@ matrix_make(double* matrix, int& size_of_matrix)
     // }
     // else {
     //     fin >> size_of_matrix ;
-    //     for(int i = 0; i < size_of_matrix; i++) {
-    //         for(int j = 0; j < size_of_matrix; j++) {
+    //     for(int j = 0; j < size_of_matrix; j++) {
+    //         for(int i = 0; i < size_of_matrix; i++) {
     //             fin >> matrix[i * size_of_matrix + j];
     //         }
     //     }
@@ -108,7 +108,7 @@ r_matrix_multiplicate(double* matrix, double* x, int size_of_matrix, int size_of
 int
 main(void)
 {
-    int size_of_matrix = 1024;
+    int size_of_matrix = 5;
     // size_of_matrix_create(size_of_matrix);
     double* matrix = new double[size_of_matrix * size_of_matrix];
     matrix_make(matrix, size_of_matrix);
