@@ -4,6 +4,7 @@
 #include <chrono>
 #include <fstream>
 #include <string>
+#include "main.h"
 
 // void
 // size_of_matrix_create(int& size_of_matrix)
@@ -50,65 +51,10 @@ matrix_make(double* matrix, int& size_of_matrix)
     }
 }
 
-void
-make_vector_x(int& i, int size_of_matrix, double* x, double* matrix, double& norm)
-{
-    norm = 0;
-    int pas = i * size_of_matrix;
-    for(int j = i + 1; j < size_of_matrix; j++) {
-        x[j - i - 1] = matrix[pas + j];
-        norm += matrix[pas + j] * matrix[pas + j];
-    }
-    x[0] -= sqrt(norm);
-    norm -= matrix[pas + i + 1] * matrix[pas + i + 1] - x[0] * x[0];
-    norm /= 2;
-}
-
-void
-l_matrix_multiplicate(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm)
-{
-    int dif = size_of_matrix - size_of_vector;
-    double sum;
-    for(int i = dif - 1; i < size_of_matrix; i++) {
-        sum = 0;
-        for(int j = dif; j < size_of_matrix; j++) {
-            sum += (matrix[i *  size_of_matrix + j] * x[j - dif]);
-        }
-        sum /= norm;
-        for(int j = dif; j < size_of_matrix; j++) {
-            matrix[i *  size_of_matrix + j] -= (x[j - dif] * sum);
-        }
-    }
-}
-
-void
-r_matrix_multiplicate(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm)
-{
-    int dif = size_of_matrix - size_of_vector;
-    
-    double* vector_sum = new double[size_of_matrix - dif + 1];
-
-    for(int j = dif; j < size_of_matrix; j++) {
-        for(int i = dif - 1; i < size_of_matrix; i++) {
-            vector_sum[i - dif + 1] += (matrix[j * size_of_matrix + i] * x[j - dif]);
-        }
-    }
-
-    for(int i = 0; i < size_of_matrix - dif + 1; i++) {
-        vector_sum[i] /= norm;
-    }
-
-    for(int j = dif; j < size_of_matrix; j++) {
-        for(int i = dif - 1; i < size_of_matrix; i++) {
-            matrix[j * size_of_matrix + i] -= (x[j - dif] * vector_sum[i - dif + 1]);
-        }
-    }
-}
-
 int
 main(void)
 {
-    int size_of_matrix = 5;
+    int size_of_matrix = 4096;
     // size_of_matrix_create(size_of_matrix);
     double* matrix = new double[size_of_matrix * size_of_matrix];
     matrix_make(matrix, size_of_matrix);
@@ -125,13 +71,6 @@ main(void)
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
     std::cout << std::endl;
-    
-    // for(int i = 0; i < size_of_matrix; i++) {
-    //     for(int j = 0; j < size_of_matrix; j++) {
-    //         std::cout << matrix[j *  size_of_matrix + i] << " ";
-    //     }
-    //     std::cout << std::endl;
-    // }
     
     bool all_is_good = true;
     
