@@ -9,8 +9,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 
 add_executable(prog
   Hessenberg_form.cpp
-  l_mul.cpp
-  r_mul.cpp
+  mul.cpp
   make_vector.cpp
 )
 
