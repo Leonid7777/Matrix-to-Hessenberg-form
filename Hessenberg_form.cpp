@@ -4,7 +4,8 @@
 #include <chrono>
 #include <fstream>
 #include <string>
-#include "main.h"
+#include "make_vector.h"
+#include "mul.h"
 
 // void
 // size_of_matrix_create(int& size_of_matrix)
