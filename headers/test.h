@@ -1,0 +1,1 @@
+void my_test(int size_of_matrix, double* matrix, double* test_reflection_vectors, double* test_norm, double* test_matrix);

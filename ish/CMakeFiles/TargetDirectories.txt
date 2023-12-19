@@ -1,0 +1,3 @@
+/home/l.burtsev/Desktop/Householder/practicum/ish/CMakeFiles/prog.dir
+/home/l.burtsev/Desktop/Householder/practicum/ish/CMakeFiles/edit_cache.dir
+/home/l.burtsev/Desktop/Householder/practicum/ish/CMakeFiles/rebuild_cache.dir

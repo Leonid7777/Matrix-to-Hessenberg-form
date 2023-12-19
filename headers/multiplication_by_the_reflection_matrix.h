@@ -1,0 +1,2 @@
+void multiplication_by_the_reflection_matrix_on_the_right(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm);
+void multiplication_by_the_reflection_matrix_on_the_left(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm);

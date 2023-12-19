@@ -1,0 +1,1 @@
+void matrix_make(double* matrix, int& size_of_matrix);

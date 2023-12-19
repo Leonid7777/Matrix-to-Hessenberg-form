@@ -1,5 +1,5 @@
 void
-l_matrix_multiplicate(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm)
+multiplication_by_the_reflection_matrix_on_the_left(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm)
 {
     int dif = size_of_matrix - size_of_vector;
     double sum;
@@ -16,7 +16,7 @@ l_matrix_multiplicate(double* matrix, double* x, int size_of_matrix, int size_of
 }
 
 void
-r_matrix_multiplicate(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm)
+multiplication_by_the_reflection_matrix_on_the_right(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm)
 {
     int dif = size_of_matrix - size_of_vector;
     
