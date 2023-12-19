@@ -1,0 +1,1 @@
+void hessenberg_function(int size_of_matrix, double* matrix, double* test_matrix, double* test_norm);

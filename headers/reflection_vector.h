@@ -1,0 +1,1 @@
+void creating_a_reflection_vector(int& i, int size_of_matrix, double* x, double* matrix, double& norm);
