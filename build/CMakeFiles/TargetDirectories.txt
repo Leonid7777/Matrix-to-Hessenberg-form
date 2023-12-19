@@ -1,8 +1,0 @@
-/home/l.burtsev/Desktop/Householder/practicum/ish/CMakeFiles/Hes_rev.dir
-/home/l.burtsev/Desktop/Householder/practicum/ish/CMakeFiles/edit_cache.dir
-/home/l.burtsev/Desktop/Householder/practicum/ish/CMakeFiles/rebuild_cache.dir
-/home/l.burtsev/Desktop/Householder/practicum/ish/src/CMakeFiles/edit_cache.dir
-/home/l.burtsev/Desktop/Householder/practicum/ish/src/CMakeFiles/rebuild_cache.dir
-/home/l.burtsev/Desktop/Householder/practicum/ish/test/CMakeFiles/test.dir
-/home/l.burtsev/Desktop/Householder/practicum/ish/test/CMakeFiles/edit_cache.dir
-/home/l.burtsev/Desktop/Householder/practicum/ish/test/CMakeFiles/rebuild_cache.dir

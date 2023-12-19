@@ -1,2 +1,0 @@
-/usr/bin/ar qc libHes_rev.a CMakeFiles/Hes_rev.dir/src/apply_reflection.cpp.o CMakeFiles/Hes_rev.dir/src/reflection_vector.cpp.o CMakeFiles/Hes_rev.dir/src/hessenberg.cpp.o CMakeFiles/Hes_rev.dir/src/creating_matrix.cpp.o
-/usr/bin/ranlib libHes_rev.a
