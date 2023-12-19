@@ -1,7 +1,7 @@
 add_executable(test
   test.cpp
   test.h
-  Hessenbrerg_form.cpp
+  Hessenberg_form.cpp
 )
 
 target_link_libraries(test
