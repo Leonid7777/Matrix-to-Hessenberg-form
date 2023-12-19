@@ -1,0 +1,2 @@
+void apply_compile_right(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm);
+void apply_compile_left(double* matrix, double* x, int size_of_matrix, int size_of_vector, double norm);

@@ -1,1 +1,0 @@
-g++  -Ofast CMakeFiles/prog.dir/src/Hessenberg_form.cpp.o CMakeFiles/prog.dir/src/multiplication_by_the_reflection_matrix.cpp.o CMakeFiles/prog.dir/src/reflection_vector.cpp.o CMakeFiles/prog.dir/src/hessenberg.cpp.o CMakeFiles/prog.dir/src/creating_matrix.cpp.o CMakeFiles/prog.dir/src/test.cpp.o -o prog 

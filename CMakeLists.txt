@@ -1,22 +1,18 @@
 cmake_minimum_required(VERSION 3.22)
-project(prog)
+project(Hes_rev)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 11)
+option(BUILD_BLAS "USE BLAS" OFF)
 
 set(CMAKE_CXX_COMPILER "g++")
 set(GCC_COVERAGE_COMPILE_FLAGS "-Ofast")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
-set(INCLUDE_PATH "headers")
+set(INCLUDE_PATH "include")
 
 include_directories(${INCLUDE_PATH})
 
-add_executable(prog
-  src/Hessenberg_form.cpp
-  src/multiplication_by_the_reflection_matrix.cpp
-  src/reflection_vector.cpp
-  src/hessenberg.cpp
-  src/creating_matrix.cpp
-  src/test.cpp
-)
+add_library(${CMAKE_PROJECT_NAME})
 
-target_link_libraries(prog)
+add_subdirectory(src)
+
+add_subdirectory(test)
