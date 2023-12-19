@@ -9,8 +9,8 @@
 
 #### The Complexity of the Algorithm:
 The algorithm has a complexity n^3.
-Time of work of algorithm without LAPACK: matrix[4096 * 4096] for about 42 seconds.
-Time of work of algorithm with LAPACK: matrix[4096 * 4096] for about 52 seconds.
+1. Time of work of algorithm without LAPACK: matrix[4096 * 4096] for about 42 seconds.
+2. Time of work of algorithm with LAPACK: matrix[4096 * 4096] for about 52 seconds.
 
 #### Usage example 
 ##### 1. (without LAPACK):
